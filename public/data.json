@@ -1,0 +1,93 @@
+[
+    {
+        "category_id": "1",
+        "picture": "https://i.ibb.co/HhhVp43/luxury-car-2.jpg",
+        "originalPrice": "36 Lakh",
+        "resalePrice": "15 Lakh",
+        "sellerName": "Conner Chaney",
+        "brandName": "Range Rover",
+        "email": "connerchaney@signidyne.com",
+        "phone": "+880 (891) 565-2703",
+        "location": "158 Porter Avenue, Ogema",
+        "usingYears": "2 years",
+        "postingTime": "2022-02-11 07:57 "
+    },
+    {
+        "category_id": "2",
+        "picture": "https://i.ibb.co/FH3tzQD/microbus-3.jpg",
+        "originalPrice": "36 Lakh",
+        "resalePrice": "16 Lakh",
+        "sellerName": "Carlene Smith",
+        "brandName": " Toyota",
+        "email": "carlenesmith@strozen.com",
+        "phone": "+880 (814) 419-2470",
+        "location": "130 Kenilworth Place, Wilmington",
+        "usingYears": "6 years",
+        "postingTime": "2022-03-18 05:37 "
+    },
+    {
+        "category_id": "3",
+        "picture": "https://i.ibb.co/sQpYWfF/Limousine-car-1.jpg",
+        "originalPrice": "35 Lakh",
+        "resalePrice": "17 Lakh",
+        "sellerName": "Wagner Kelley",
+        "brandName": "Primieo",
+        "email": "wagnerkelley@malathion.com",
+        "phone": "+880 (836) 417-3449",
+        "location": "485 Greenwood Avenue, Valle",
+        "usingYears": "4 years",
+        "postingTime": "2022-07-20 06:41 "
+    },
+    {
+        "category_id": "2",
+        "picture": "https://i.ibb.co/SsqMfkF/microbus-2.jpg",
+        "originalPrice": "35 Lakh",
+        "resalePrice": "18 Lakh",
+        "sellerName": "Richardson Carlson",
+        "brandName": "Nissan Sunney",
+        "email": "richardsoncarlson@visalia.com",
+        "phone": "+880 (960) 514-2957",
+        "location": "142 Robert Street, Watrous",
+        "usingYears": "2 years",
+        "postingTime": "2022-01-13 02:15 "
+    },
+    {
+        "category_id": "3",
+        "picture": "https://i.ibb.co/4Jp6GBW/Limousine-car-2.jpg",
+        "originalPrice": "37 Lakh",
+        "resalePrice": "17 Lakh",
+        "sellerName": "Virginia Huff",
+        "brandName": "Hyundai",
+        "email": "virginiahuff@tubalum.com",
+        "phone": "+880 (887) 600-3835",
+        "location": "125 Hopkins Street, Greenwich",
+        "usingYears": "3 years",
+        "postingTime": "2022-04-08 02:30 "
+    },
+    {
+        "category_id": "1",
+        "picture": "https://i.ibb.co/bQJz9yT/luxury-car.jpg",
+        "originalPrice": "36 Lakh",
+        "resalePrice": "17 Lakh",
+        "sellerName": "Nettie Kirk",
+        "brandName": " Audi E-tron",
+        "email": "nettiekirk@atgen.com",
+        "phone": "+880 (828) 434-3884",
+        "location": "975 Dikeman Street, Jackpot",
+        "usingYears": "6 years",
+        "postingTime": "2022-03-20 11:37 "
+    },
+    {
+        "category_id": "2",
+        "picture": "https://i.ibb.co/sFQ4TrH/microbus-1.jpg",
+        "originalPrice": "35 Lakh",
+        "resalePrice": "15 Lakh",
+        "sellerName": "Rena Mercer",
+        "brandName": "Honda",
+        "email": "renamercer@webiotic.com",
+        "phone": "+880 (895) 428-3194",
+        "location": "670 Brown Street, Walton",
+        "usingYears": "3 years",
+        "postingTime": "2022-04-27 12:05 "
+    }
+]

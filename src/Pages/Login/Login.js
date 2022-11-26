@@ -5,23 +5,26 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 import useTitle from '../../hooks/useTitle';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     useTitle('login');
 
-    const { login, loginWithGoogle } = useContext(AuthContext);
+    const { login, loginWithGoogle, loading, setLoading } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
 
     const handleLogin = event => {
+
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
 
         login(email, password)
+
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -29,19 +32,26 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
 
-            .catch(err => console.error(err));
+            .catch(err => {
+                toast.error(`${err.message}`)
+                setLoading(false)
+            });
 
     }
 
     const handleGoogleLogin = () => {
         loginWithGoogle()
+
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, { replace: true });
             })
 
-            .catch(err => console.error(err));
+            .catch(err => {
+                toast.error(`${err.message}`)
+
+            });
     }
     return (
 
@@ -66,10 +76,19 @@ const Login = () => {
                             <input type="password" placeholder="password" name='password' required className="input input-bordered" />
 
                         </div>
-                        <div className="form-control my-4">
-                            <input className="btn btn-info" type="submit" value="Login" />
-                        </div>
+
+                        {
+                            loading ? <div className='flex justify-center items-center h-full'>
+                                <div className="w-10 h-10 border-4 border-dashed rounded-full animate-spin border-red-400"></div>
+                            </div>
+                                :
+                                <div className="form-control my-4">
+                                    <input className="btn btn-info" type="submit" value="login" />
+                                </div>
+                        }
+
                     </form>
+
                     <button onClick={handleGoogleLogin} className='border-2 border-indigo-600 rounded-md w-3/4 mx-auto text-center'>
                         <p>Login with Google</p>
                         <p className=' ml-32 my-2 '><FaGoogle></FaGoogle></p>
