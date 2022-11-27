@@ -1,12 +1,15 @@
 import React from 'react';
-import Spinner from '../../../Spinner/Spinner';
+import useTitle from '../../../hooks/useTitle';
 import Carousel from '../Carousel/Carousel';
+import Categories from '../Categories/Categories';
 
 const Home = () => {
+    useTitle('Home')
     return (
         <div>
             <Carousel></Carousel>
-            <Spinner></Spinner>
+            <Categories></Categories>
+
         </div>
     );
 };
