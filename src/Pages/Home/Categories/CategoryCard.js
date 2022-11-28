@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CategoryCard = ({ data }) => {
+const CategoryCard = ({ data, setCategoryDetails }) => {
     const { picture } = data;
 
     return (
@@ -11,7 +11,9 @@ const CategoryCard = ({ data }) => {
                     <div className='p-10'>
                         <h1 className="text-5xl font-bold">Box Office News!</h1>
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-primary">Book Now</button>
+
+
+                        <label onClick={() => setCategoryDetails(data)} htmlFor="booking-modal" className="btn btn-active text-white bg-gradient-to-r from-sky-500 to-indigo-500">Book Now</label>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import logo from '../../../assets/logo.png'
 
 const Footer = () => {
     return (
-        <footer className="footer p-5 bg-indigo-900 text-white flex justify-evenly items-center">
+        <footer className="footer p-5 text-white bg-gradient-to-r from-sky-500 to-indigo-500 flex justify-evenly items-center">
             <div>
                 <img width="100" height="100" src={logo} alt="" />
                 <p>Car Polli<br />Providing reliable vehicle since 2001</p>

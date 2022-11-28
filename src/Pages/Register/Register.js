@@ -104,7 +104,7 @@ const Register = () => {
                             </div>
                                 :
                                 <div className="form-control my-4">
-                                    <input className="btn btn-info" type="submit" value="register" />
+                                    <input className="btn btn-active text-white bg-gradient-to-r from-sky-500 to-indigo-500" type="submit" value="register" />
                                 </div>
                         }
                     </form>

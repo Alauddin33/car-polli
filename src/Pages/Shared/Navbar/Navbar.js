@@ -1,19 +1,25 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleLogout = () => {
         logout()
-            .then(toast.success('Logout successful'))
+            .then(() => {
+                toast.success('Logout successful')
+                navigate(from, { replace: true });
+            })
             .catch(err => console.log(err))
     }
 
     return (
-        <div className="navbar bg-indigo-900 text-amber-400 font-semibold">
+        <div className="navbar text-yellow-500 bg-gradient-to-r from-sky-500 to-indigo-500 font-semibold">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

@@ -83,14 +83,14 @@ const Login = () => {
                             </div>
                                 :
                                 <div className="form-control my-4">
-                                    <input className="btn btn-info" type="submit" value="login" />
+                                    <input className="btn btn-active text-white bg-gradient-to-r from-sky-500 to-indigo-500" type="submit" value="login" />
                                 </div>
                         }
 
                     </form>
 
-                    <button onClick={handleGoogleLogin} className='border-2 border-indigo-600 rounded-md w-3/4 mx-auto text-center'>
-                        <p>Login with Google</p>
+                    <button onClick={handleGoogleLogin} className='border-2 border-indigo-600  rounded-md w-3/4 mx-auto text-center text-white bg-gradient-to-r from-red-500 to-yellow-500'>
+                        <p className=''>Login with Google</p>
                         <p className=' ml-32 my-2 '><FaGoogle></FaGoogle></p>
                     </button>
 
