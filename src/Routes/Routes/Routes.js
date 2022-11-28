@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../../ErrorPage/ErrorPage";
+import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Category from "../../Pages/Home/Categories/Category";
@@ -34,13 +35,20 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
 
             },
-            {
-                path: '/dashboard',
-                element: <PrivateRoute>
-                    <Dashboard></Dashboard>
-                </PrivateRoute>
-            }
 
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute>
+            <DashboardLayout></DashboardLayout>
+        </PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>
+            }
+        ]
     }
+
 ])

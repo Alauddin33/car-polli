@@ -8,6 +8,8 @@ const Category = () => {
     const categoryData = useLoaderData();
     const [categoryDetails, setCategoryDetails] = useState(null);
 
+
+
     return (
         <>
 
