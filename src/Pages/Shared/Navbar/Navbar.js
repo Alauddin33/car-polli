@@ -27,7 +27,9 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/dashboard'>DashBoard</Link></li>
+                        {
+                            user && <li><Link to='/dashboard'>DashBoard</Link></li>
+                        }
                         <li tabIndex={0}>
                             <Link className="justify-between">
                                 Options
@@ -46,7 +48,9 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/dashboard'>DashBoard</Link></li>
+                    {
+                        user && <li><Link to='/dashboard'>DashBoard</Link></li>
+                    }
                     <li tabIndex={0}>
                         <Link>
                             Options
