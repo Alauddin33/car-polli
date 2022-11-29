@@ -7,10 +7,11 @@ const BookingModal = ({ categoryDetails, setCategoryDetails }) => {
     const { brandName, resalePrice } = categoryDetails;
 
 
+
     const handleBooking = event => {
         event.preventDefault();
         const form = event.target;
-        const itemName = form.itemName.value;
+
         const userName = form.userName.value;
         const userEmail = form.email.value;
         const price = form.price.value;
@@ -18,7 +19,7 @@ const BookingModal = ({ categoryDetails, setCategoryDetails }) => {
         const meetingLocation = form.meetingLocation.value;
 
         const booking = {
-            itemName,
+            itemName: brandName,
             userName,
             userEmail,
             price,
@@ -51,11 +52,11 @@ const BookingModal = ({ categoryDetails, setCategoryDetails }) => {
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
-                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
+                    <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h2 className=' text-3xl text-center py-4'>{brandName}</h2>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-1 w-3/4 mx-auto'>
-                        <input className="input input-bordered text-lg font-bold " type="text" name="itemName" defaultValue={brandName} readOnly id="" />
-                        <br></br>
+
                         <input className="input input-bordered " type="text" name="userName" defaultValue={user?.displayName} readOnly id="" />
                         <br></br>
                         <input className="input input-bordered " type="email" name="email" defaultValue={user?.email} readOnly id="" />
