@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import img from '../../assets/login.jpg'
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -6,15 +6,23 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 import useTitle from '../../hooks/useTitle';
 import { toast } from 'react-toastify';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     useTitle('login');
 
     const { login, loginWithGoogle, loading, setLoading } = useContext(AuthContext);
 
+    const [loginUserEmail, setLoginUserEmail] = useState('');
+    const [token] = useToken(loginUserEmail);
+
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+
+    if (token) {
+        navigate(from, { replace: true });
+    }
 
     const handleLogin = event => {
 
@@ -28,8 +36,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setLoginUserEmail(email);
                 form.reset();
-                navigate(from, { replace: true });
             })
 
             .catch(err => {

@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../../ErrorPage/ErrorPage";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
-import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
+import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import Category from "../../Pages/Home/Categories/Category";
 import Home from "../../Pages/Home/Home/Home";
@@ -46,9 +47,17 @@ export const router = createBrowserRouter([
         </PrivateRoute>,
         children: [
             {
-                path: '/dashboard',
+                path: '/dashboard/myorders',
                 element: <MyOrders></MyOrders>
-            }
+            },
+            {
+                path: '/dashboard/addproduct',
+                element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
+            },
         ]
     }
 

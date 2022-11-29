@@ -1,19 +1,26 @@
-import React, { useContext } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import img from '../../assets/login.jpg'
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
     useTitle('Register');
 
     const { createUser, updateUserProfile, loading, setLoading } = useContext(AuthContext);
 
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
 
+    const [token] = useToken(createdUserEmail);
+
+    const navigate = useNavigate();
+
+
+    if (token) {
+        navigate('/');
+    }
 
     const handleRegister = event => {
         event.preventDefault();
@@ -32,6 +39,7 @@ const Register = () => {
             method: "POST",
             body: formData,
         })
+
             .then(res => res.json())
             .then(imageData => {
 
@@ -45,15 +53,18 @@ const Register = () => {
                             })
 
                         saveUser(name, email);
+
                     })
                     .catch(err => {
                         toast.error(`${err.message}`)
                         setLoading(false)
                     })
+
+
             })
             .catch(err => console.log(err))
 
-        form.reset();
+
 
     }
 
@@ -70,21 +81,12 @@ const Register = () => {
             })
             .then(res => res.json())
             .then(data => {
-                getUserToken(email);
+                setCreatedUserEmail(email);
             })
     }
 
 
-    const getUserToken = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
-            .then(res => res.json())
-            .then(data => {
-                if (data.accessToken) {
-                    localStorage.setItem('accessToken', data.accessToken);
-                    navigate(from, { replace: true });
-                }
-            })
-    }
+
 
 
     return (
