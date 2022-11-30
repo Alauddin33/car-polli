@@ -13,8 +13,9 @@ const Login = () => {
 
     const { login, loginWithGoogle, loading, setLoading } = useContext(AuthContext);
 
-    const [loginUserEmail, setLoginUserEmail] = useState('');
+    const [loginUserEmail, setLoginUserEmail] = useState(null);
     const [token] = useToken(loginUserEmail);
+
 
     const navigate = useNavigate();
     const location = useLocation();
