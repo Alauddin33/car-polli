@@ -13,6 +13,8 @@ const Register = () => {
 
     const [createdUserEmail, setCreatedUserEmail] = useState('');
 
+    const [userOption, setUserOption] = useState();
+
     const [token] = useToken(createdUserEmail);
 
     const navigate = useNavigate();
@@ -22,10 +24,14 @@ const Register = () => {
         navigate('/');
     }
 
+
+
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
+        const userOption = form.userOption.value;
+
         const image = form.image.files[0];
         const email = form.email.value;
         const password = form.password.value;
@@ -52,7 +58,7 @@ const Register = () => {
 
                             })
 
-                        saveUser(name, email);
+                        saveUser(name, email, userOption);
 
                     })
                     .catch(err => {
@@ -69,8 +75,8 @@ const Register = () => {
     }
 
 
-    const saveUser = (name, email) => {
-        const user = { name, email };
+    const saveUser = (name, email, userOption) => {
+        const user = { name, email, role: userOption };
         fetch('http://localhost:5000/users',
             {
                 method: 'POST',
@@ -98,6 +104,20 @@ const Register = () => {
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
                     <form onSubmit={handleRegister} className="card-body">
+
+                        <select value={userOption} onChange={e => setUserOption(e.target.value)}>
+
+                            <option>Select Option</option>
+                            <option>Buyer</option>
+                            <option>Seller</option>
+
+                        </select>
+                        <div className="form-control">
+
+                            <input type="text" name='userOption' defaultValue={userOption}
+                                required readOnly className="input input-bordered" />
+                        </div>
+
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>

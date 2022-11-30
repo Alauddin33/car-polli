@@ -13,7 +13,8 @@ const Login = () => {
 
     const { login, loginWithGoogle, loading, setLoading } = useContext(AuthContext);
 
-    const [loginUserEmail, setLoginUserEmail] = useState(null);
+    const role = 'buyer';
+    const [loginUserEmail, setLoginUserEmail] = useState('');
     const [token] = useToken(loginUserEmail);
 
 
@@ -54,7 +55,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                navigate(from, { replace: true });
+                saveUser(user.displayName, user.email, role);
             })
 
             .catch(err => {
@@ -62,6 +63,26 @@ const Login = () => {
 
             });
     }
+
+
+
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role: role };
+        fetch('http://localhost:5000/users',
+            {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            })
+            .then(res => res.json())
+            .then(data => {
+                setLoginUserEmail(email);
+            })
+    }
+
+
     return (
 
         <div className="hero mt-28 bg-base-200">
