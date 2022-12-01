@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
+
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
 
@@ -16,6 +17,7 @@ const MyOrders = () => {
                 }
             });
             const data = await res.json();
+
             return data;
         }
 
@@ -42,8 +44,9 @@ const MyOrders = () => {
                             <th>Payment</th>
                         </tr>
                     </thead>
-                    <tbody>
 
+
+                    <tbody>
                         {
                             bookings.map(booking => <tr key={booking._id}>
                                 <th>
@@ -72,8 +75,10 @@ const MyOrders = () => {
                                 </th>
                             </tr>)
                         }
-
                     </tbody>
+
+
+
                 </table>
             </div>
         </div>

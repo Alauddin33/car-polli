@@ -67,8 +67,8 @@ const AddProduct = () => {
                     .then(data => {
                         console.log(data);
                         if (data.acknowledged) {
-
                             toast.success('product upload confirmed')
+                            navigate('/dashboard/myproduct')
                         }
 
                     })

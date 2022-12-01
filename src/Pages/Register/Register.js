@@ -108,8 +108,9 @@ const Register = () => {
                         <select value={userOption} onChange={e => setUserOption(e.target.value)}>
 
                             <option>Select Option</option>
-                            <option>Buyer</option>
-                            <option>Seller</option>
+                            <option>buyer</option>
+                            <option>seller</option>
+
 
                         </select>
                         <div className="form-control">

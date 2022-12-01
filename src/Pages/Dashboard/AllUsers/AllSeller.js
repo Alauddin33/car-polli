@@ -2,32 +2,18 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 
-const AllUsers = () => {
+const AllSeller = () => {
     const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['users', 'seller'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('http://localhost:5000/users/seller');
             const data = await res.json();
             return data;
         }
     })
 
 
-    const handleMakeAdmin = id => {
-        fetch(`http://localhost:5000/users/admin/${id}`, {
-            method: 'PUT',
-            headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    toast.success('make admin successfully')
-                    refetch();
-                }
-            })
-    }
+
 
 
     return (
@@ -41,7 +27,7 @@ const AllUsers = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>User Role</th>
-                            <th>Make Admin</th>
+
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -53,9 +39,7 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
-                                <th>
-                                    {user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className="btn btn-xs btn-active text-white bg-gradient-to-r from-sky-500 to-indigo-500">make admin</button>}
-                                </th>
+
                                 <th>
 
                                     <button className="btn btn-xs btn-active text-white bg-gradient-to-r from-red-500 to-yellow-500">X</button>
@@ -71,4 +55,4 @@ const AllUsers = () => {
     );
 };
 
-export default AllUsers;
+export default AllSeller;
