@@ -5,7 +5,7 @@ const useSeller = email => {
     const [isSellerLoading, setIsSellerLoading] = useState(false);
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/user/seller/${email}`)
+            fetch(`https://car-polli-server.vercel.app/user/seller/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data.isSeller);

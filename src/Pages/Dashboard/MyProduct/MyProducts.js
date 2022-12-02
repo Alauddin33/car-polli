@@ -10,7 +10,7 @@ const MyProducts = () => {
     const { data: products = [], refetch } = useQuery({
         queryKey: ['users', 'admin'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/products/${user?.email}`);
+            const res = await fetch(`https://car-polli-server.vercel.app/products/${user?.email}`);
             const data = await res.json();
             return data;
         }
@@ -21,7 +21,7 @@ const MyProducts = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete this product?');
         if (proceed) {
-            fetch(`http://localhost:5000/products/${id}`, {
+            fetch(`https://car-polli-server.vercel.app/products/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -38,7 +38,7 @@ const MyProducts = () => {
 
     const hadleStatusUpdate = id => {
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://car-polli-server.vercel.app/products/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -56,7 +56,7 @@ const MyProducts = () => {
 
 
     const handleAdvertise = (id) => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://car-polli-server.vercel.app/products/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

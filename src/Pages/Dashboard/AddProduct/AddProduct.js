@@ -58,7 +58,7 @@ const AddProduct = () => {
                     usingYears,
                     postingTime
                 }
-                fetch('http://localhost:5000/products', {
+                fetch('https://car-polli-server.vercel.app/products', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

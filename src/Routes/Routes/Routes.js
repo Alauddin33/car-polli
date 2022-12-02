@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <Category></Category>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://car-polli-server.vercel.app/category/${params.id}`)
 
             },
 

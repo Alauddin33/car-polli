@@ -5,7 +5,7 @@ const useStatus = email => {
     const [isStatusLoading, setIsStatusLoading] = useState(false);
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/products/status/${email}`)
+            fetch(`https://car-polli-server.vercel.app/products/status/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data.isStatus);

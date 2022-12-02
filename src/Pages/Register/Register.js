@@ -77,7 +77,7 @@ const Register = () => {
 
     const saveUser = (name, email, userOption) => {
         const user = { name, email, role: userOption };
-        fetch('http://localhost:5000/users',
+        fetch('https://car-polli-server.vercel.app/users',
             {
                 method: 'POST',
                 headers: {
