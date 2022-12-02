@@ -16,6 +16,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SellerRoute from "../SellerRoute/SellerRoute";
 import BuyerRoute from "../BuyerRoute/BuyerRoute";
 import MyProducts from "../../Pages/Dashboard/MyProduct/MyProducts";
+import Blog from "../../Pages/Blog/Blog";
 
 export const router = createBrowserRouter([
     {
@@ -43,6 +44,12 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://car-polli-server.vercel.app/category/${params.id}`)
 
             },
+
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+
+            }
 
         ]
     },

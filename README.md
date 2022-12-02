@@ -1,3 +1,26 @@
+# My Website Name:  "Car Polli"
+
+## Live site Link:
+Website link is given here: [https://carpolli.web.app/](https://carpolli.web.app/
+
+# points which I make
+* Use React Query
+* Use Custom hook
+* Jwt for security
+* Server side data management
+* Firebase deployment
+
+
+# List of Technology:
+* React js
+* Tailwind css
+* vercel
+* Daisy ui
+* nodemon
+* react icon
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

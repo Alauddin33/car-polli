@@ -33,11 +33,7 @@ const MyOrders = () => {
 
                     <thead>
                         <tr>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
+
                             <th>Name & Image</th>
                             <th>Product Brand Name</th>
                             <th>Price</th>
@@ -49,11 +45,7 @@ const MyOrders = () => {
                     <tbody>
                         {
                             bookings.map(booking => <tr key={booking._id}>
-                                <th>
-                                    <label>
-                                        <input type="checkbox" className="checkbox" />
-                                    </label>
-                                </th>
+
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">

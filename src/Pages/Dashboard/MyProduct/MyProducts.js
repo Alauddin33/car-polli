@@ -81,11 +81,7 @@ const MyProducts = () => {
 
                 <thead>
                     <tr>
-                        <th>
-                            <label>
-                                <input type="checkbox" className="checkbox" />
-                            </label>
-                        </th>
+
                         <th>Name & image</th>
                         <th>Price</th>
                         <th>Sales Status</th>
@@ -97,11 +93,7 @@ const MyProducts = () => {
 
                     {
                         products.map(product => <tr key={product._id}>
-                            <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
-                            </th>
+
                             <td>
                                 <div className="flex items-center space-x-3">
                                     <div className="avatar">
