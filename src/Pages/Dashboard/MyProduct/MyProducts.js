@@ -7,8 +7,6 @@ const MyProducts = () => {
     const { user } = useContext(AuthContext);
 
 
-
-
     const { data: products = [], refetch } = useQuery({
         queryKey: ['users', 'admin'],
         queryFn: async () => {
@@ -36,6 +34,45 @@ const MyProducts = () => {
                 })
         }
     }
+
+
+    const hadleStatusUpdate = id => {
+
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'sold' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch();
+                }
+            })
+
+    }
+
+
+    const handleAdvertise = (id) => {
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ Adv: 'Ads going' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    refetch();
+                }
+            })
+
+    }
+
+
 
 
     return (
@@ -80,12 +117,27 @@ const MyProducts = () => {
                             <td>
                                 {product.resalePrice}
                             </td>
-                            <td>Purple</td>
-                            <td>Purple</td>
+
+                            <td>
+                                {
+                                    <button className="btn btn-xs btn-active text-white bg-gradient-to-r from-black to-slate-500" onClick={() =>
+                                        hadleStatusUpdate(product._id)}>
+                                        {product.status ? product.status : 'available'}
+                                    </button>
+                                }
+                            </td>
+
                             <th>
+                                {
+                                    !product.status &&
+                                    <button onClick={() => handleAdvertise(product._id)} className="btn btn-xs btn-active text-white bg-gradient-to-r from-blue-500 to-green-500">{product.Adv ? product.Adv : 'advertise'}</button>
 
+                                }
+                            </th>
+
+
+                            <th>
                                 <button onClick={() => handleDelete(product._id)} className="btn btn-xs btn-active text-white bg-gradient-to-r from-red-500 to-yellow-500">X</button>
-
                             </th>
                         </tr>
                         )

@@ -12,6 +12,8 @@ const AddProduct = () => {
     const { loading, setLoading, user } = useContext(AuthContext);
     const [userOption, setUserOption] = useState();
     const navigate = useNavigate();
+
+
     const handleAddProduct = event => {
         event.preventDefault();
         const form = event.target;
@@ -34,7 +36,7 @@ const AddProduct = () => {
         formData.append('image', image)
         const url = "https://api.imgbb.com/1/upload?key=c56e7ffc7d1ed06ac49d1ca43154a9f3"
 
-
+        setLoading(true);
         fetch(url, {
             method: "POST",
             body: formData,
@@ -69,6 +71,7 @@ const AddProduct = () => {
                         if (data.acknowledged) {
                             toast.success('product upload confirmed')
                             navigate('/dashboard/myproduct')
+                            setLoading(false)
                         }
 
                     })
